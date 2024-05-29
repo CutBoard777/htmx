@@ -1,7 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
-
+strength = 1
+sex = 0
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -11,11 +12,12 @@ def var():
     user = "Geeksforgeeks"
     return render_template("variable_example.html", name=user)
 
-@app.route("/for", methods=["POST", "GET"])
+@app.route("/clicked", methods=["POST", "GET"])
 def for_loop():
-    sex = request.form["sex"]
-    count = sex + 1
-    return render_template("for_example.html", count=count)
+    global sex
+    global strength
+    sex = sex + strength
+    return render_template("for_example.html", sex=sex)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000, host="127.0.0.1")
