@@ -4,14 +4,53 @@
     <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>htmx project</title>
 </head>
 <body>
-    <div id="data-container">Counter</div>
-    <h1>kjhguh</h1>
-    <form hx-post="/for" hx-swap="innerHTML" hx-target="#sex" hx-trigger="submit">
-        <div id="sex" name="sex">hi :D</div>
-        <button type="submit">Submit</button>
-      </form>
+    <div hx-get="/timer" hx-trigger="every 1s">/time set 0</div>
+    <h1>htmx project</h1>
+    <div hx-post="/mouse_entered" hx-trigger="mouseenter once" style="width:160px">
+        [Here Mouse, Mouse!]
+    </div>
+    <button hx-get="/buton" hx-swap="innerHTML">
+        erm
+    </button>
+    <br>
+    <button hx-get="/buton" hx-swap="outerHTML">
+        erm
+    </button>
+    <br>
+    <div hx-on:click="alert('You clicked me!')" hx-trigger="click[ctrlKey]">
+        Control Click Me
+    </div>
+    <br>
+    <div id="div1" hx-post="/mouse_entered" hx-trigger="mouseenter" hx-swap="delete" style="width:160px; transition: all ease-in 1s">
+        This text is shy
+    </div>
+    <br>
+    <style>
+        .smooth {
+          transition: all 2s ease-in;
+        }
+    </style>
+    <div id="color-demo" class="smooth" style="color:hsl(0,100%,50%)"
+            hx-get="/colors" hx-swap="outerHTML" hx-trigger="every 2s">
+        Pride month party
+    </div>
+    <br>
+    <div hx-post="/sigma" hx-swap="outerHTML" hx-trigger="load"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>css? si mangia?</div>
 </body>
 </html>
